@@ -42,4 +42,5 @@ int main(){
 
 ## Maybe You Like
 [Python Dilami Calendar](https://github.com/Jangal/python-dilami-calendar)
+[Arduino Dilami Calendar](https://github.com/LordArma/Dilami-Calendar-Arduino)
 [تقویم دیلمی](http://giltime.ir)
