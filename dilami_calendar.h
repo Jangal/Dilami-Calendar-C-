@@ -487,7 +487,7 @@ void DilamiCalendar::setJalaliDay(int Day){
 }
 
 
-void setDilamiDate(int DilamiYear, int DilamiMonth, int DilamiDay){
+void DilamiCalendar::setDilamiDate(int DilamiYear, int DilamiMonth, int DilamiDay){
     dy = DilamiYear;
     dm = DilamiMonth;
     dd = DilamiDay;
@@ -495,7 +495,7 @@ void setDilamiDate(int DilamiYear, int DilamiMonth, int DilamiDay){
 };
 
 
-void setJalaliDate(int JalaliYear, int JalaliMonth, int JalaliDay){
+void DilamiCalendar::setJalaliDate(int JalaliYear, int JalaliMonth, int JalaliDay){
     jy = JalaliYear;
     jm = JalaliMonth;
     jd = JalaliDay;
