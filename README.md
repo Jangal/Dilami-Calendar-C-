@@ -10,7 +10,7 @@ Just download [dilami_calendar.cpp](https://github.com/LordArma/Dilami-Calendar-
 
 ```C++
 #include <iostream>
-#include "dilami_calendar.cpp"
+#include "dilami_calendar.h"
 
 using namespace std;
 
