@@ -35,7 +35,6 @@ int main(){
     cout << "Jalali Year: " << dc.getJalaliYear() << endl;
     cout << endl;
 
-    dc.setJalaliYear(1399);
     return 0;
 }
 
