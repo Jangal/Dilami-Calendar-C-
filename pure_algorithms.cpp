@@ -2,8 +2,17 @@
 
 using namespace std;
 
-const char * DAY_NAMES[] { "Shambeh", "Yekshambeh", "Doushambeh", "Soushambeh", "Charshambeh", "Panshanbeh", "Joumeh" };
-const char * MONTH_NAMES[] { "Panjik", "Norouzma", "Kourchema", "Arema", "Tirma", "Mourdalma", "Sharirma", "Amirma", "Avalma", "Siama", "Diama", "Varfanema", "Esfandarma" };
+const char * DILAMI_DAY_NAMES[] { "Shambeh", "Yekshambeh", "Doushambeh", "Soushambeh", "Charshambeh", "Panshanbeh", "Joumeh" };
+const char * DILAMI_MONTH_NAMES[] { "Panjik", "Norouzma", "Kourchema", "Arema", "Tirma", "Mourdalma", "Sharirma", "Amirma", "Avalma", "Siama", "Diama", "Varfanema", "Esfandarma" };
+const char * JALALI_MONTH_NAMES[] { "Farvardin", "Ordibehesht", "Khordad", "Tir", "Mordad", "Shahrivar", "Mehr", "Aban", "Azar", "Dey", "Bahman", "Esfand" };
+
+int dy = 0;
+int dm = 0;
+int dd = 0;
+
+int jy = 0;
+int jm = 0;
+int jd = 0;
 
 bool is_jalali_leap_year(int JalaliYear){
     int leaps[47] = { 4, 37, 66, 99, 132, 165, 198, 231, 264, 297, 326
@@ -25,10 +34,6 @@ bool is_jalali_leap_year(int JalaliYear){
     }
     return false;
 }
-
-int y = 0;
-int m = 0;
-int d = 0;
 
 void jalali_to_dilami(int JalaliYear, int JalaliMonth, int JalaliDay)
 {
@@ -199,16 +204,204 @@ void jalali_to_dilami(int JalaliYear, int JalaliMonth, int JalaliDay)
             DilamiDay = JalaliDay + 13;
     }
 
-    y = DilamiYear;
-    m = DilamiMonth;
-    d = DilamiDay;
+    dy = DilamiYear;
+    dm = DilamiMonth;
+    dd = DilamiDay;
+}
+
+
+void dilami_to_jalali(int DilamiYear, int DilamiMonth, int DilamiDay){
+    int JalaliYear = 0;
+    int JalaliMonth = 0;
+    int JalaliDay = 0;
+    int k = 0;
+
+    if (DilamiMonth == 0){
+        JalaliYear = DilamiYear - 194;
+    }
+    else if (DilamiMonth < 8 || (DilamiMonth == 8 && DilamiDay <= 15)){
+        JalaliYear = DilamiYear - 195;
+    }
+    else{
+        JalaliYear = DilamiYear - 194;
+    }
+
+    if (is_jalali_leap_year(JalaliYear)){
+        k = 1;
+    }
+
+    if (DilamiMonth == 0 && DilamiDay == 0){
+        JalaliMonth = 1;
+        JalaliDay = 15;
+
+        jy = JalaliYear;
+        jm = JalaliMonth;
+        jd = JalaliDay;
+        return;
+    }
+
+    if (DilamiMonth == 0){
+        JalaliMonth = 1;
+        JalaliDay = DilamiDay + 15;
+
+        jy = JalaliYear;
+        jm = JalaliMonth;
+        jd = JalaliDay;
+        return;
+    }
+
+    if (DilamiMonth == 1){
+        if (DilamiDay <= 15)
+            JalaliMonth = 5;
+        else
+            JalaliMonth = 6;
+
+        if (DilamiDay <= 15)
+            JalaliDay = DilamiDay + 16;
+        else
+            JalaliDay = DilamiDay - 15;
+    }
+    else if (DilamiMonth == 2){
+        if (DilamiDay <= 16)
+            JalaliMonth = 6;
+        else
+            JalaliMonth = 7;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 15;
+        else
+            JalaliDay = DilamiDay - 16;
+    }
+    else if (DilamiMonth == 3){
+        if (DilamiDay <= 16)
+            JalaliMonth = 7;
+        else
+            JalaliMonth = 8;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 14;
+        else
+            JalaliDay = DilamiDay - 16;
+    }
+    else if (DilamiMonth == 4){
+        if (DilamiDay <= 16)
+            JalaliMonth = 8;
+        else
+            JalaliMonth = 9;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 14;
+        else
+            JalaliDay = DilamiDay - 16;
+    }
+    else if (DilamiMonth == 5){
+        if (DilamiDay <= 16)
+            JalaliMonth = 9;
+        else
+            JalaliMonth = 10;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 14;
+        else
+            JalaliDay = DilamiDay - 16;
+    }
+    else if (DilamiMonth == 6){
+        if (DilamiDay <= 16)
+            JalaliMonth = 10;
+        else
+            JalaliMonth = 11;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 14;
+        else
+            JalaliDay = DilamiDay - 16;
+    }
+    else if (DilamiMonth == 7){
+        if (DilamiDay <= 16)
+            JalaliMonth = 11;
+        else
+            JalaliMonth = 12;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 14;
+        else
+            JalaliDay = DilamiDay - 16;
+    }
+    else if (DilamiMonth == 8){
+        if (DilamiDay <= (15 + k))
+            JalaliMonth = 12;
+        else
+            JalaliMonth = 1;
+
+        if (DilamiDay <= (15 + k))
+            JalaliDay = DilamiDay + 14;
+        else
+            JalaliDay = DilamiDay - 15 - k;
+
+        if (k == 1 && DilamiDay == 16){
+            JalaliYear = JalaliYear - 1;
+        }
+    }
+    else if (DilamiMonth == 9){
+        if (DilamiDay <= 16)
+            JalaliMonth = 1;
+        else
+            JalaliMonth = 2;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 20;
+        else
+            JalaliDay = DilamiDay - 11;
+    }
+    else if (DilamiMonth == 10){
+        if (DilamiDay <= 16)
+            JalaliMonth = 2;
+        else
+            JalaliMonth = 3;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 19;
+        else
+            JalaliDay = DilamiDay - 12;
+    }
+    else if (DilamiMonth == 11){
+        if (DilamiDay <= 16)
+            JalaliMonth = 3;
+        else
+            JalaliMonth = 4;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 18;
+        else
+            JalaliDay = DilamiDay - 13;
+    }
+    else if (DilamiMonth == 12){
+        if (DilamiDay <= 16)
+            JalaliMonth = 4;
+        else
+            JalaliMonth = 5;
+
+        if (DilamiDay <= 16)
+            JalaliDay = DilamiDay + 17;
+        else
+            JalaliDay = DilamiDay - 14;
+    }
+
+    jy = JalaliYear;
+    jm = JalaliMonth;
+    jd = JalaliDay;
+    return;
 }
 
 int main(){
 
-
     jalali_to_dilami(1398, 9, 30);
-    cout << y << " " << MONTH_NAMES[m] << " " << d;
+    cout << dy << " " << DILAMI_MONTH_NAMES[dm] << " " << dd;
+
+    cout << endl;
+
+    dilami_to_jalali(1593, 7, 18);
+    cout << jy << " " << jm << " " << jd;
 
     return 0;
 }
