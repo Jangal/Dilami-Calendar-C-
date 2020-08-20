@@ -45,4 +45,6 @@ int main(){
 <br/>
 [Arduino Dilami Calendar](https://github.com/LordArma/Dilami-Calendar-Arduino)
 <br/>
+[.Net Dilami Calendar](https://github.com/Jangal/Dilami-Calendar-.Net)
+<br/>
 [تقویم دیلمی](http://giltime.ir)
