@@ -3,7 +3,7 @@
 
 ## Install
 
-Just download [dilami_calendar.cpp](https://github.com/LordArma/Dilami-Calendar-C-/blob/master/dilami_calendar.cpp "dilami_calendar.cpp") and copy it near your project.
+Just download [dilami_calendar.h](https://github.com/LordArma/Dilami-Calendar-C-/blob/master/dilami_calendar.h "dilami_calendar.cpp") and copy it near your project.
 
 
 ## Example
