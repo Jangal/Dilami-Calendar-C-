@@ -171,15 +171,15 @@ void DilamiCalendar::jalali_to_dilami(int JalaliYear, int JalaliMonth, int Jalal
             DilamiDay = JalaliDay + 16;
     }
     else if (JalaliMonth == 1){
-        if ((k == 1) && (JalaliDay == 15)){
+        if ((k == 0) && (JalaliDay == 15)){
             DilamiMonth = 0;
             DilamiDay = 0;
         }
-        else if ((k == 1) && (JalaliDay < 15)){
+        else if ((k == 0) && (JalaliDay < 15)){
             DilamiMonth = 8;
             DilamiDay = JalaliDay + 16;
         }
-        else if (k == 0 && (JalaliDay < 16)){
+        else if (k == 1 && (JalaliDay < 16)){
             DilamiMonth = 8;
             DilamiDay = JalaliDay + 15;
         }
@@ -350,6 +350,11 @@ void DilamiCalendar::dilami_to_jalali(int DilamiYear, int DilamiMonth, int Dilam
             JalaliDay = DilamiDay - 16;
     }
     else if (DilamiMonth == 8){
+        if (k == 0)
+            k == 1;
+        else
+            k == 0;
+
         if (DilamiDay <= (15 + k))
             JalaliMonth = 12;
         else

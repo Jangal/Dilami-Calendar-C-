@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    DilamiCalendar dc(1398, 12, 2);
+    DilamiCalendar dc(1400, 1, 5);
     cout << "Dilami Day: " << dc.getDilamiDay() << endl;
     cout << "Dilami Month: " << dc.getDilamiMonth() << endl;
     cout << "Dilami Year: " << dc.getDilamiYear() << endl;
