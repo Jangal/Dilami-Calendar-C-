@@ -67,7 +67,7 @@ void DilamiCalendar::jalali_to_dilami(int JalaliYear, int JalaliMonth, int Jalal
         DilamiYear = JalaliYear + 195;
     }
 
-    if (is_jalali_leap_year(JalaliYear)){
+    if (is_dilami_leap_year(DilamiYear)){
         DilamiDay = 6;
         DilamiMonth = 0;
         k = 1;
@@ -239,7 +239,7 @@ void DilamiCalendar::dilami_to_jalali(int DilamiYear, int DilamiMonth, int Dilam
         JalaliYear = DilamiYear - 194;
     }
 
-    if (is_jalali_leap_year(JalaliYear)){
+    if (is_dilami_leap_year(DilamiYear)){
         k = 1;
     }
 
