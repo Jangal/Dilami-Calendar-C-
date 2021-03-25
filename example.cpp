@@ -1,5 +1,6 @@
 #include <iostream>
 #include "dilami_calendar.h"
+#include <fstream>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int main(){
     cout << endl;
 
     cout << "Is " << dc.getDilamiYear() << " leap year? " << endl;
-    if (dc.isLeap()){
+    if (dc.isLeap(false)){
         cout << "Yes!" << endl;
     }
     else{
@@ -19,9 +20,19 @@ int main(){
     }
     cout << endl;
 
+
     cout << "Jalali Day: " << dc.getJalaliDay() << endl;
     cout << "Jalali Month: " << dc.getJalaliMonth() << endl;
     cout << "Jalali Year: " << dc.getJalaliYear() << endl;
+    cout << endl;
+
+    cout << "Is " << dc.getJalaliYear() << " leap year? " << endl;
+    if (dc.isLeap(true)){
+        cout << "Yes!" << endl;
+    }
+    else{
+        cout << "No!" << endl;
+    }
     cout << endl;
 
     return 0;

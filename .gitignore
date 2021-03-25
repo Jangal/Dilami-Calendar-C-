@@ -1,2 +1,4 @@
 *.exe
 *.o
+*.txt
+dilami_leap_years_generator.cpp
