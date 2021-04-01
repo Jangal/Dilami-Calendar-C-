@@ -43,6 +43,8 @@ int main(){
 ## Maybe You Like
 [Python Dilami Calendar](https://github.com/Jangal/python-dilami-calendar)
 <br/>
+[PHP Dilami Calendar](https://github.com/Jangal/php-dilami-calendar)
+<br/>
 [Arduino Dilami Calendar](https://github.com/LordArma/Dilami-Calendar-Arduino)
 <br/>
 [.Net Dilami Calendar](https://github.com/Jangal/Dilami-Calendar-.Net)
